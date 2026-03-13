@@ -1,0 +1,460 @@
+[13-03-2026 14:17] 2510030025- Shloka Reddy: html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sunrise Care Super Speciality Hospital</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+body{
+font-family:Arial;
+}
+
+.page{
+display:none;
+}
+
+.active{
+display:block;
+}
+
+.dark-mode{
+background:#121212;
+color:white;
+}
+
+.dark-mode .card{
+background:#1e1e1e;
+color:white;
+}
+
+.navbar{
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.emergency{
+position:fixed;
+bottom:20px;
+right:20px;
+font-size:30px;
+cursor:pointer;
+}
+
+#topBtn{
+position:fixed;
+bottom:80px;
+right:20px;
+}
+footer{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+<div class="container">
+
+<a class="navbar-brand">Sunrise Care Hospital</a>
+
+<div>
+
+<button class="btn btn-light me-2" onclick="showPage('home')">Home</button>
+<button class="btn btn-light me-2" onclick="showPage('services')">Services</button>
+<button class="btn btn-light me-2" onclick="showPage('departments')">Departments</button>
+<button class="btn btn-light me-2" onclick="showPage('doctors')">Doctors</button>
+<button class="btn btn-light me-2" onclick="showPage('appointment')">Appointment</button>
+<button class="btn btn-light me-2" onclick="showPage('reports')">Reports</button>
+<button class="btn btn-light me-2" onclick="showPage('reviews')">Reviews</button>
+<button class="btn btn-light me-2" onclick="showPage('contact')">Contact</button>
+
+<button class="btn btn-dark" onclick="toggleDark()">Dark Mode</button>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- HOME -->
+
+<div id="home" class="page active">
+
+<div class="container text-center mt-5">
+
+<h1>Welcome to Sunrise Care Super Speciality Hospital</h1>
+
+<p>Providing world class healthcare with advanced technology and experienced doctors.</p>
+
+<img src="https://images.unsplash.com/photo-1586773860418-d37222d8fce3" class="img-fluid mt-3">
+
+<h4 id="clock" class="mt-4"></h4>
+
+</div>
+
+</div>
+
+<!-- SERVICES -->
+
+<div id="services" class="page">
+
+<h2 class="text-center mt-4">Our Services</h2>
+
+<div class="container mt-4">
+
+<div class="row text-center">
+
+<div class="col-md-3">
+<div class="card p-3">
+<h4>🧪 Laboratory</h4>
+<p>Advanced diagnostic testing</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card p-3">
+<h4>🚑 Emergency</h4>
+<p>24/7 emergency services</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card p-3">
+<h4>💊 Pharmacy</h4>
+<p>In-house pharmacy available</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card p-3">
+<h4>🩻 Radiology</h4>
+<p>CT scan and X-ray facilities</p>
+</div>
+</div>
+
+</div>
+
+<h2 class="text-center mt-5">Hospital Statistics</h2>
+
+<div class="row text-center mt-4">
+
+<div class="col-md-3">
+<h2 id="doctorsCount">0</h2>
+<p>Doctors</p>
+</div>
+
+<div class="col-md-3">
+<h2 id="bedsCount">0</h2>
+<p>Beds</p>
+</div>
+
+<div class="col-md-3">
+<h2 id="deptCount">0</h2>
+<p>Departments</p>
+</div>
+
+<div class="col-md-3">
+<h2 id="patientsCount">0</h2>
+<p>Patients Treated</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- DEPARTMENTS -->
+
+<div id="departments" class="page">
+
+<h2 class="text-center mt-4">Hospital Departments</h2>
+
+<div class="container mt-4">
+
+<table class="table table-bordered table-striped">
+
+<thead class="table-primary">
+
+<tr>
+<th>Department</th>
+<th>Description</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr><td>Cardiology</td><td>Heart related treatments</td></tr>
+<tr><td>Neurology</td><td>Brain and nervous system</td></tr>
+<tr><td>Orthopedics</td><td>Bones and joints</td></tr>
+<tr><td>Pediatrics</td><td>Child healthcare</td></tr>
+<tr><td>Dermatology</td><td>Skin treatments</td></tr>
+<tr><td>ENT</td><td>Ear Nose Throat</td></tr>
+<tr><td>Radiology</td><td>Medical imaging</td></tr>
+<tr><td>Oncology</td><td>Cancer treatment</td></tr>
+<tr><td>General Surgery</td><td>Major surgeries</td></tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- DOCTORS -->
+
+<div id="doctors" class="page">
+
+<h2 class="text-center mt-4">Our Specialist Doctors</h2>
+
+<div class="container mt-4">
+     <input type="text" id="searchDoctor" class="form-control" placeholder="Search Doctor..." onkeyup="searchDoctor()">
+<div class="row mt-4">
+
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<img src="/a.jpg/Dr. Rahul Kumar.jpeg" class="img-fluid rounded-circle">
+<h5>Dr. Rahul Kumar</h5>
+<p>Orthopedic Surgeon</p>
+<p class="text-success">Available Today</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<img src="/a.jpg/Dr. Anjali Sharma.jpeg" 50.jpeg class="img-fluid rounded-circle">
+<h5>Dr. Anjali Sharma</h5>
+<p>Cardiologist</p>
+<p class="text-success">Available Today</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<img src="/a.jpg/Dr. Vikram Singh.jpeg" class="img-fluid rounded-circle">
+<h5>Dr. Vikram Singh</h5>
+<p>Neurologist</p>
+<p class="text-danger">Not Available</p>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card p-3 text-center">
+<img src="/a.jpg/Dr. Meera Patel.jpeg" class="img-fluid rounded-circle">
+<h5>Dr. Meera Patel</h5>
+<p>Pediatrician</p>
+<p class="text-success">Available Today</p>
+</div>
+</div>
+
+
+
+</div>
+
+</div>
+
+</div>
+
+<!-- APPOINTMENT -->
+
+<div id="appointment" class="page">
+
+<h2 class="text-center mt-4">Book Appointment</h2>
+
+<div class="container mt-4">
+
+<input class="form-control mt-2" placeholder="Full Name">
+<input class="form-control mt-2" placeholder="Phone Number">
+<input type="date" class="form-control mt-2">
+
+<select class="form-control mt-2">
+<option>Select Department</option>
+<option>Cardiology</option>
+<option>Neurology</option>
+<option>Orthopedics</option>
+<option>Pediatrics</option>
+<option>Dermatology</option>
+<option>ENT</option>
+<option>Oncology</option>
+</select>
+
+<button class="btn btn-primary mt-3" onclick="book()">Submit</button>
+
+</div>
+
+</div>
+
+<!-- REPORTS -->
+
+<div id="reports" class="page">
+
+<h2 class="text-center mt-4">Download Medical Reports</h2>
+
+<div class="container mt-4">
+
+<input class="form-control mt-2" placeholder="Enter Patient ID">
+<input class="form-control mt-2" placeholder="Phone Number">
+
+<button class="btn btn-primary mt-3" onclick="downloadReport()">Download Report</button>
+
+</div>
+
+</div>
+
+<!-- REVIEWS -->
+
+<div id="reviews" class="page">
+
+<h2 class="text-center mt-4">Patient Reviews</h2>
+
+<div id="carouselExample" class="carousel slide container mt-4" data-bs-ride="carousel">
+
+<div class="carousel-inner text-center">
+
+<div class="carousel-item active">
+<p>"Excellent doctors and friendly staff."</p>
+<h5>- Ramesh</h5>
+</div>
+
+<div class="carousel-item">
+<p>"Very clean hospital and fast service."</p>
+<h5>- Lakshmi</h5>
+</div>
+
+<div class="carousel-item">
+<p>"Doctors explained everything clearly."</p>
+<h5>- Priya</h5>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CONTACT -->
+
+<div id="contact" class="page">
+
+<h2 class="text-center mt-4">Contact Us</h2>
+
+<div class="container mt-4">
+
+<div class="row text-center">
+
+<div class="col-md-4">
+<h4>Phone</h4>
+<p>+91 98765 43210</p>
+</div>
+
+<div class="col-md-4">
+<h4>Email</h4>
+<p>sunrisecarehospital@gmail.com</p>
+</div>
+
+<div class="col-md-4">
+<h4>Address</h4>
+<p>Hyderabad, India</p>
+</div>
+
+</div>
+
+</div>
+
+<h3 class="text-center mt-5">Patient Feedback</h3>
+
+<div class="container">
+
+<input class="form-control mt-3" placeholder="Your Name">
+<input class="form-control mt-3" placeholder="Email">
+<textarea class="form-control mt-3" rows="4" placeholder="Your Feedback"></textarea>
+
+<button class="btn btn-success mt-3" onclick="feedback()">Submit Feedback</button>
+
+</div>
+
+
+<!-- MAP -->
+
+<h3 class="text-center mt-5">Our Location</h3>
+
+<div class="container text-center">
+
+<iframe src="https://www.google.com/maps?q=hyderabad&output=embed"
+width="100%" height="300" style="border:0;"></iframe>
+
+</div>
+
+</div>
+
+<footer class="text-center mt-5 p-3 bg-dark text-white">
+© 2026 Sunrise Care Super Speciality Hospital
+</footer>
+
+<button id="topBtn" class="btn btn-secondary" onclick="window.scrollTo(0,0)">⬆️</button>
+
+<div class="emergency" onclick="alert('Emergency Call: 108')">🚑</div>
+
+<script>
+
+function showPage(page){
+let pages=document.querySelectorAll(".page");
+pages.forEach(p=>p.classList.remove("active"));
+document.getElementById(page).classList.add("active");
+window.scrollTo(0,0);
+}
+
+function book(){alert("Appointment Booked Successfully!");}
+function feedback(){alert("Thank you for your feedback!");}
+function downloadReport(){alert("Report Downloaded Successfully!");}
+function toggleDark(){document.body.classList.toggle("dark-mode");}
+
+function searchDoctor(){
+let input=document.getElementById("searchDoctor").value.toLowerCase();
+let cards=document.querySelectorAll("#doctors .card");
+cards.forEach(card=>{
+let text=card.innerText.toLowerCase();
+card.parentElement.style.display=text.includes(input)?"block":"none";
+});
+}
+
+setInterval(()=>{
+let now=new Date();
+document.getElementById("clock").innerHTML=now.toLocaleTimeString();
+},1000);
+
+function animateCounter(id,target){
+let count=0;
+let interval=setInterval(()=>{
+count++;
+document.getElementById(id).innerText=count+"+";
+if(count>=target){clearInterval(interval);}
+},20);
+}
+
+animateCounter("doctorsCount",150);
+animateCounter("bedsCount",500);
+animateCounter("deptCount",20);
+animateCounter("patientsCount",1000);
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
